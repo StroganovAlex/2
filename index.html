@@ -1,59 +1,93 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <title>Pet-project: HTML, CSS, JS, React</title>
-    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="images/favicon1.png" type="image/png">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--  Here starts lincs  --> 
+        <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/css/style.css">
+        <link rel="icon" href="images/favicon1.png" type="image/png">
+        <title>Pet-project: The shop</title>
   </head>
-  <body style="background-color: #1e2f49; margin: 0; padding: 0;">
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-xl-5">
+                <div class="goods_box" id="goods">
+                    <div class="menu">
+                        <input type="text" placeholder="Поиск" class="search">
+                        <button class="add btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">&#10010;</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="goods table mt-3" id="table1">
+                            <thead>
+                                <tr class="table-primary align-middle">
+                                    <th data-type="number">№</th>
+                                    <th data-type="string">Название</th>
+                                    <th data-type="number">Цена, &#8381;</th>
+                                    <th data-type="number">Количество</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="list">
 
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #1e2f49;">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>    
+            </div>
+            <div class="col-xs-12 col-xl-7">
+                <div class="price_box">
+                    <div class="menu">
+                        <div class="price_title">Итого: <span class="price_result">0 &#8381;</span></div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="price table mt-3" id="table2">
+                            <thead>
+                                <tr class="table-primary align-middle">
+                                    <th data-type="number">№</th>
+                                    <th data-type="string">Название</th>
+                                    <th data-type="number">Цена/ш, &#8381;</th>
+                                    <th data-type="number">Количество</th>
+                                    <th>Скидка, %</th>
+                                    <th data-type="number">Цена, &#8381;</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="card">
 
-      <div class="container-fluid">
-          <!-- закоментил ссылку на navbar-brand 
-          <a class="navbar-brand" href="#"></a>
-          -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link" href="vinsent-page.html" target="_blank">Страничка Винса</a>
-            </li>
-            <li class="nav-item">
-              <!-- 
-              <a class="nav-link" href="#" target="_self">CSS (в разработке)</a>
-              -->
-              <a class="nav-link" href="#" target="_self">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cone-striped" viewBox="0 0 16 16">
-                <path d="m9.97 4.88.953 3.811C10.159 8.878 9.14 9 8 9c-1.14 0-2.158-.122-2.923-.309L6.03 4.88C6.635 4.957 7.3 5 8 5s1.365-.043 1.97-.12zm-.245-.978L8.97.88C8.718-.13 7.282-.13 7.03.88L6.275 3.9C6.8 3.965 7.382 4 8 4c.618 0 1.2-.036 1.725-.098zm4.396 8.613a.5.5 0 0 1 .037.96l-6 2a.5.5 0 0 1-.316 0l-6-2a.5.5 0 0 1 .037-.96l2.391-.598.565-2.257c.862.212 1.964.339 3.165.339s2.303-.127 3.165-.339l.565 2.257 2.391.598z"></path>
-                </svg>CSS (в разработке)
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="test-js-page.html" target="_blank">JS</a>
-            </li>
-            <li class="nav-item">
-              <!-- <a class="nav-link" href="#" target="_self">Обратная связь (в разработке)</a>
-              -->
-              <a class="nav-link" href="#" target="_self">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cone-striped" viewBox="0 0 16 16">
-              <path d="m9.97 4.88.953 3.811C10.159 8.878 9.14 9 8 9c-1.14 0-2.158-.122-2.923-.309L6.03 4.88C6.635 4.957 7.3 5 8 5s1.365-.043 1.97-.12zm-.245-.978L8.97.88C8.718-.13 7.282-.13 7.03.88L6.275 3.9C6.8 3.965 7.382 4 8 4c.618 0 1.2-.036 1.725-.098zm4.396 8.613a.5.5 0 0 1 .037.96l-6 2a.5.5 0 0 1-.316 0l-6-2a.5.5 0 0 1 .037-.96l2.391-.598.565-2.257c.862.212 1.964.339 3.165.339s2.303-.127 3.165-.339l.565 2.257 2.391.598z"></path>
-              </svg>Обратная связь (в разработке)
-            </li>
-          </a>
-          </ul>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Добавить товар</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label for="good_name" class="form-label">Название товара</label>
+              <input type="text" class="form-control mb-3" id="good_name" maxlength="40">
+              <label for="good_price" class="form-label">Цена</label>
+              <input type="text" class="form-control mb-3" id="good_price">
+              <label for="good_count" class="form-label">Количество</label>
+              <input type="text" class="form-control mb-3" id="good_count" min="1" value="1">
+              <button type="submit" class="btn btn-success">Сохранить</button>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-    
-    <img src="images/totoro.GIF" alt="" width="100%">
 
     <script src="vendor/js/bootstrap.bundle.min.js"></script>
-
+    <script src="vendor/js/sweetalert2.all.min.js"></script>
+    <script src="vendor/js/list.min.js"></script>
+    <script src="vendor/js/main.js"></script>
   </body>
-</html>    
+</html>
