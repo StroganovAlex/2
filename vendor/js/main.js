@@ -39,7 +39,7 @@ function update_goods() {
     let result_price = 0
     let tbody = document.querySelector('.list')
     tbody.innerHTML = ""
-    document.querySelector('.card').innerHTML = ""
+    document.querySelector('.cart').innerHTML = ""
     let goods = JSON.parse(localStorage.getItem('goods'))
     if(goods.length) {
         table1.hidden = false
@@ -60,7 +60,7 @@ function update_goods() {
             if(goods[i][4]>0) {
                 goods[i][6] = goods[i][4]*goods[i][2] - goods[i][4]*goods[i][2]*goods[i][5]*0.01
                 result_price += goods[i][6]
-                document.querySelector('.card').insertAdjacentHTML('beforeend',
+                document.querySelector('.cart').insertAdjacentHTML('beforeend',
                 `
                 <tr class="alighn-middle">
                   <td>${i+1}</td>
