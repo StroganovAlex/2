@@ -60,7 +60,7 @@ function update_goods() {
             if(goods[i][4]>0) {
                 goods[i][6] = goods[i][4]*goods[i][2] - goods[i][4]*goods[i][2]*goods[i][5]*0.01
                 result_price += goods[i][6]
-                document.querySelector('.cart').insertAdjacentHTML('beforeend',
+                document.querySelector('.card').insertAdjacentHTML('beforeend',
                 `
                 <tr class="alighn-middle">
                   <td>${i+1}</td>
@@ -69,7 +69,7 @@ function update_goods() {
                   <td class="price_count">${goods[i][4]}</td>
                   <td class="price_discount"><input data-goodid="${goods[i][0]}" type="text" value="${goods[i][5]}" min="0" max="100"></td>
                   <td>${goods[i][6]}</td>
-                  <td><button class="good_delete btn-danger" data-delete="${goods[i][0]}">&#10006;</button></td>
+                  <td><button class="good_delete btn btn-danger" data-delete="${goods[i][0]}">&#10006;</button></td>
                 </tr>
                 `
                 )
@@ -114,7 +114,7 @@ document.querySelector('.list').addEventListener('click',function(e) {
         }
     })
 })
-
+ 
 document.querySelector('.list').addEventListener('click', function(e) {
     if(!e.target.dataset.goods) {
         return
@@ -128,4 +128,4 @@ document.querySelector('.list').addEventListener('click', function(e) {
             update_goods()
         }
     }
-})   
+})    
